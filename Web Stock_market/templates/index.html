@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon-32x32.png') }}" sizes="32x32" />
+    <title>STOCK</title>
+</head>
+<body>
+    <div class="content py-4">
+        <header>
+            <br>
+            <div class="line"></div>
+                <div style="display:inline-block; color:aliceblue">
+                    <h1>Phân tích và đánh giá cổ phiếu tiềm năng<h1>
+                </div>
+            <div class="line"></div>
+        </header> 
+    </div>
+    <div class="col">
+        <div class="line"></div>
+        <div class=" d-flex justify-content-center">
+            <div class="menu-stock my-2 col-8">
+                <div class="form-group ">
+                    <form action="{{ url_for('test')}}" method="post">
+                        <label class="font-weight-bold">Chọn mã cổ phiếu</label>
+                        <select class="form-control" name="input" id = "stock">
+                          <option>Chose one stock ....</option>
+                          <option>STB</option>
+                          <option>VIC</option>
+                          <option>SSI</option>
+                          <option>MSN</option>
+                          <option>FPT</option>
+                          <option>HAG</option>
+                          <option>KDC</option>
+                          <option>EIB</option>
+                          <option>DPM</option>
+                          <option>VNM</option>
+                          <option>REE</option>
+                          <option>OGC</option>
+                          <option>IJC</option>
+                          <option>VCB</option>
+                          <option>PNJ</option>
+                          <option>BVH</option>
+                          <option>ITA</option>
+                          <option>HPG</option>
+                          <option>CTG</option>
+                          <option>SJS</option>
+                          <option>QCG</option>
+                          <option>PVD</option>
+                          <option>CII</option>
+                          <option>SBT</option>
+                          <option>VSH</option>
+                          <option>KDH</option>
+                          <option>DIG</option>
+                          <option>GMD</option>
+                        </select>
+                        <button class="btn btn-primary my-2 submit" type="submit" onclick="checkMyStock()" id="sub">Submit</button>
+                    </form> 
+                    
+                </div>
+            </div>            
+        </div>
+        <div>
+            <h2 style="color: white;">Dự đoán:</h2>
+            {% block content %}{% endblock %}
+            <br><br>
+            {% for message in get_flashed_messages() %}
+                <h3 style="color: rgb(229, 215, 17);">{{ message }}</h3>
+            {% endfor %}
+        </div>
+        <div class="table-stock  row row-cols-4">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                      <th>Stock</th>
+                      <th>Number of shares</th>
+                      <th>Total cost</th>
+                      <th>Current value</th>
+                      <th>Percent change</th>
+                    </tr>
+                </thead>
+                <tbody class="table-body">
+                    <th>ABC</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                </tbody>
+                <!-- <tr>
+                  <td>Loading...</td>
+                </tr> -->
+          
+                <tr></tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        function checkMyStock() {
+          let x = document.getElementById("stock").value;
+          if (x == "Chose one stock ...."){
+            alert("Hãy chọn mã cổ phiếu muốn dự đoán")
+          }
+        }
+    </script>
+</body>
+</html>

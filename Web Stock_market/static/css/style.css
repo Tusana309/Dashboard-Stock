@@ -1,0 +1,26 @@
+body{
+    background-color: #3A3535;
+}
+.menu-stock{
+    /* background-color: rgba(100, 190, 229, 0.464); */
+    color: rgb(170, 226, 48);
+}
+.table-stock{
+    background-color: rgba(109, 203, 237, 0.586);
+}
+#content {
+    margin: 20px;
+}
+.line {
+    width: 200px;
+    height: 0px;
+    border: 2px solid white;
+    margin: 15px;
+    display:inline-block;
+}
+div {
+    text-align: center;
+}
+.table-body{
+    color: white;
+}
