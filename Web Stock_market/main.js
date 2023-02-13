@@ -21,16 +21,15 @@ async function loadIntoTable(url, table){
     const response = await fetch(url);
     const { rows} = await response.json();
     console.log(("STB" == rows[0][0]))
-    // tableBody.innerHTML = "<tr></tr>";
     for (const row of rows){
         check_color = row[2]
         console.log(check_color)
         const rowElement = document.createElement("tr");
-        // if(check_color == 1){
-        //     rowElement.setAttribute('id','increase');
-        // }else{
-        //     rowElement.setAttribute('id','reduce');
-        // }
+        if(check_color == 1){
+            rowElement.setAttribute('id','increase');
+        }else{
+            rowElement.setAttribute('id','reduce');
+        }
         row_new = [row[0], row[1]]
         for (const cellText of row_new){
             const cellElement = document.createElement("th");
@@ -39,13 +38,7 @@ async function loadIntoTable(url, table){
             
         }
         tableBody.appendChild(rowElement);
-
-
     }
-    document.getElementById("increase").style.color = "green";
-    document.getElementById("reduce").style.color = "red";
 }
 
-
 loadIntoTable("./data.json", document.querySelector("table"));
-

@@ -1,5 +1,5 @@
 body{
-    background-color: #3A3535;
+    background-color: #1b052f;
 }
 .menu-stock{
     /* background-color: rgba(100, 190, 229, 0.464); */
@@ -22,5 +22,15 @@ div {
     text-align: center;
 }
 .table-body{
+    color: white;
+}
+#reduce{
+    color: red;
+}
+#increase{
+    color: #13ff13;
+}
+.header-table{
+    background-color: #388adb;
     color: white;
 }
